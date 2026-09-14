@@ -76,7 +76,7 @@ async function CreateRaing(ratingData) {
     
 }
 
-// Turn a raw API error body (often ASP.NET ProblemDetails JSON) into a clean, user-friendly message
+// Turn a raw API error body (make it clear to read)
 function parseApiError(errorText, status) {
     if (!errorText) return `Something went wrong (${status}). Please try again.`;
 
