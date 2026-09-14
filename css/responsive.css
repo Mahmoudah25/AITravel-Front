@@ -1,6 +1,4 @@
-/* ============================================
-   Tablets & small desktops (≤768px)
-   ============================================ */
+/* Tablets & small desktops (768px) */
 @media (max-width: 768px) {
     body {
         padding-top: 30px;
@@ -41,9 +39,7 @@
     }
 }
 
-/* ============================================
-   Mobile phones (≤480px)
-   ============================================ */
+/* Mobile phones (480px) */
 @media (max-width: 480px) {
     body {
         padding-top: 16px;
@@ -165,9 +161,7 @@
     }
 }
 
-/* ============================================
-   Very small screens (≤360px)
-   ============================================ */
+/*  small screens (360px) */
 @media (max-width: 360px) {
     .container {
         padding: 12px;
@@ -191,9 +185,7 @@
     }
 }
 
-/* ============================================
-   Landscape orientation on short screens
-   ============================================ */
+/* Landscape orientation on short screens */
 @media (max-height: 500px) and (orientation: landscape) {
     body {
         padding-top: 10px;

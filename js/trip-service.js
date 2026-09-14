@@ -59,7 +59,7 @@ async function initiatePayment(bookingId) {
 }
 
 
-// Rating (  create rate)
+// Rating (  create rate )
 async function CreateRaing(ratingData) {
     const response = await fetch(RATINGS_URL,{
         method: 'POST',
