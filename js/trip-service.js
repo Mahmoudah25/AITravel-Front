@@ -59,7 +59,7 @@ async function initiatePayment(bookingId) {
 }
 
 
-// Rating (  create rate )
+// Rating (  create rate)
 async function CreateRaing(ratingData) {
     const response = await fetch(RATINGS_URL,{
         method: 'POST',
@@ -69,9 +69,30 @@ async function CreateRaing(ratingData) {
     if(!response.ok)
     {
         const errorText = await response.text();
-        throw new Error (errorText ||`Failed to create rating ${response.status}`);
+        throw new Error(parseApiError(errorText, response.status));
     }
     const text = await response.text();
     return text.replace(/^"|"$/g,'')
     
+}
+
+// Turn a raw API error body (often ASP.NET ProblemDetails JSON) into a clean, user-friendly message
+function parseApiError(errorText, status) {
+    if (!errorText) return `Something went wrong (${status}). Please try again.`;
+
+    try {
+        const problem = JSON.parse(errorText);
+
+        if (problem.errors && typeof problem.errors === 'object') {
+            const messages = Object.values(problem.errors).flat();
+            if (messages.length > 0) return messages.join(' ');
+        }
+
+        if (problem.title) return problem.title;
+        if (problem.message) return problem.message;
+    } catch (e) {
+        // Not JSON, fall through and use the raw text
+    }
+
+    return errorText.length < 150 ? errorText : `Something went wrong (${status}). Please try again.`;
 }
