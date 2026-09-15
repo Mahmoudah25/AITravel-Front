@@ -5,7 +5,7 @@ const currentTrip = {
     destination: urlParams.get('destination'),
     days: parseInt(urlParams.get('days')),
     budget: parseFloat(urlParams.get('budget')),
-    currency: urlParams.get('currency') || 'USD'
+    currency: urlParams.get('currency') || 'EGP'
 };
 
 function formatCost(amount) {
