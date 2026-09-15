@@ -25,7 +25,8 @@ document.getElementById('tripForm').addEventListener('submit', async function (e
         const params = new URLSearchParams({
             destination: tripData.destination,
             days: tripData.days,
-            budget: tripData.budgetAmount
+            budget: tripData.budgetAmount,
+            currency:tripData.budgetCurrency
         });
 
         setTimeout(() => {

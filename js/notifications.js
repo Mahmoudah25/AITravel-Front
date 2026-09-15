@@ -6,6 +6,12 @@ function initializeNotifications(customerEmail) {
 
     connection.on("BookingStatusChanged", (data) => {
         showNotification(`Booking status changed to: ${data.newStatus}`);
+
+        // If the current page defines a handler (e.g. trip-details.js), let it
+        // react to the status change — e.g. mark an activity's button as Paid.
+        if (typeof window.handleBookingStatusChanged === 'function') {
+            window.handleBookingStatusChanged(data);
+        }
     });
 
     connection.start()

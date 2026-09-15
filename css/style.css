@@ -266,6 +266,20 @@ button:disabled {
     cursor: not-allowed;
 }
 
+.book-btn.paid {
+    background-color: #2e8b57;
+    color: white;
+    cursor: default;
+    opacity: 1;
+}
+
+.book-btn.pending {
+    background-color: #e0a800;
+    color: white;
+    cursor: default;
+    opacity: 1;
+}
+
 /* Notification */
 .notification-banner {
     position: fixed;
